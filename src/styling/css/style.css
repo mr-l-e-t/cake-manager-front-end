@@ -1,0 +1,521 @@
+@charset "UTF-8";
+@font-face {
+  font-family: BebasNeuePro-SemiExp-Bold;
+  font-display: swap;
+  src: url("../fonts/BebasNeuePro-SemiExp-Bold.woff2") format("woff2"), url("../fonts/BebasNeuePro-SemiExp-Bold.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: BebasNeuePro-SemiExp-Book;
+  font-display: swap;
+  src: url("../fonts/BebasNeuePro-SemiExp-Book.woff2") format("woff2"), url("../fonts/BebasNeuePro-SemiExp-Book.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: BebasNeuePro-Book;
+  font-display: swap;
+  src: url("../fonts/BebasNeuePro-Book.woff2") format("woff2"), url("../fonts/BebasNeuePro-Book.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: BebasNeuePro-SemiExp-Regular;
+  font-display: swap;
+  src: url("../fonts/BebasNeuePro-SemiExp-Regular.woff2") format("woff2"), url("../fonts/BebasNeuePro-SemiExp-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #000;
+  line-height: 1;
+  font-family: "BebasNeuePro-SemiExp-Regular";
+  font-size: 1.125rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "BebasNeuePro-SemiExp-Regular";
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper > main {
+  flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+[class*=__container] {
+  max-width: 62.8125rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+}
+
+[class*=-ibg] {
+  position: relative;
+}
+[class*=-ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+[class*=-ibg_contain] img {
+  object-fit: contain;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+  letter-spacing: 0.6px;
+  text-align: left;
+  padding: 15px 10px 15px 10px;
+}
+.header__logo {
+  max-width: 215px;
+}
+.header__logo img {
+  flex: 1 1 auto;
+}
+.header__buttons {
+  display: flex;
+  align-items: center;
+}
+.header__add {
+  background: #BC4B20;
+  color: #FFFFFF;
+  border-radius: 25px;
+}
+.header__add a {
+  display: block;
+  padding: 10px 40px 10px 64px;
+  border-radius: 25px;
+}
+
+.header__add span {
+  position: relative;
+}
+.header__add span::before {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 3px;
+  border-radius: 25px;
+  background: #fff;
+  left: -27px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.header__add span::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 17px;
+  border-radius: 25px;
+  background: #fff;
+  left: -20px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.header__login {
+  margin: 0px 0px 0px 50px;
+  padding: 10px 0px 10px 0px;
+  color: #BC4B20;
+  background: url("../img/cheficon.svg") left no-repeat;
+}
+.header__login a {
+  padding: 10px 0px 10px 30px;
+}
+.add_cake{
+  padding: 10px 0px 10px 30px;
+  display: block;
+  width: 126px;
+  margin-left: 12px;
+}
+.page {
+  background: #F6F6F6;
+}
+.page__title {
+  padding: 30px 0px;
+  background: #FFD8C9;
+}
+
+.page__title_add_cake{
+  height: 200px;
+}
+.page__title h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "BebasNeuePro-Book";
+  font-size: 5rem;
+}
+.page__btn-download {
+  font-size: 1.125rem;
+  line-height: 1.2222222222;
+  color: #FFFFFF;
+  background: #808080;
+  display: inline-block;
+  border-radius: 25px;
+}
+.page__btn-download a {
+  display: block;
+  border-radius: 25px;
+  padding: 15px 35px;
+}
+.page__cakes {
+  padding: 30px 0px 30px 0px;
+}
+
+.item-page {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  letter-spacing: 1.08px;
+  color: #000000;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  margin: 0px 0px 30px 0px;
+}
+.item-page :last-child {
+  margin: 0px 0px 0px 0px;
+}
+.item-page__img {
+  flex: 1 0 308px;
+  background: #B4B4B4 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  max-height: 223px;
+  max-width: 308px;
+}
+.item-page__info {
+  padding: 15px 0px 15px 30px;
+}
+.item-page__title {
+  font-family: "BebasNeuePro-SemiExp-Bold";
+  font-size: 2.25rem;
+  padding: 0px 0px 20px 0px;
+  line-height: 1.1944444444;
+}
+.item-page__title_ingredient {
+  font-family: "BebasNeuePro-SemiExp-Bold";
+  font-size: 2rem;
+  padding: 0px 0px 20px 0px;
+  line-height: 1.1944444444;
+}
+.item-page__text {
+  color: #000000;
+  letter-spacing: 0.54px;
+  padding: 0px 0px 20px 0px;
+  line-height: 1.2222222222;
+}
+.item-page__btn {
+  color: #177FBD;
+  line-height: 1.2222222222;
+}
+
+.best {
+  color: #BC4B20;
+}
+
+* {
+  outline: none;
+}
+
+.form-recipes {
+  padding: 40px;
+  background: #FEC7B3;
+  border-radius: 20px;
+  max-width: 545px;
+  min-height: 677px;
+  margin: -110px auto 0 auto;
+}
+.form-recipes__title {
+  font-size: 3.75rem;
+  line-height: 1.2;
+  font-family: "BebasNeuePro-Book";
+  padding: 0px 0px 40px 0px;
+  text-align: center;
+}
+.form-recipes label {
+  font-size: 1.125rem;
+  line-height: 1.2222222222;
+  padding: 0px 0px 0px 10px;
+}
+.form-recipes input,
+.form-recipes textarea {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0px 0px 0px 10px;
+  resize: none;
+  margin: 5px 0px 0px 0px;
+  border-radius: 5px;
+}
+.form-recipes textarea {
+  min-height: 150px;
+  margin: 5px 0px 10px 0px;
+  padding: 10px 0px 0px 15px;
+}
+.form-recipes__field {
+  margin: 0px 0px 30px 0px;
+  transition: all 0.8s ease 0s;
+}
+.form-recipes__field ._form-focus {
+  box-shadow: 0 0 15px #e7a187;
+}
+.form-recipes .form__error {
+  margin: 10px 0px 0px 0px;
+  color: red;
+}
+.form-recipes * ._form-error {
+  box-shadow: 0 0 15px #e25441;
+}
+.form-recipes__img {
+  margin: 0px 0px 30px 0px;
+  position: relative;
+  transition: all 0.8s ease 0s;
+}
+.form-recipes__img input {
+  padding: 0px 55px 0px 15px;
+}
+.form-recipes__img ._form-focus {
+  box-shadow: 0 0 15px #e7a187;
+}
+.form-recipes__img::after {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 2px;
+  background: #FFD8C9;
+  right: 50px;
+  transform: translate(0, 54%);
+  top: 0;
+}
+.form-recipes__file {
+  position: absolute;
+  right: 0px;
+  top: 35%;
+  width: 50px;
+  height: 50px;
+}
+.form-recipes__file img {
+  width: 17px;
+}
+.form-recipes__description {
+  margin: 0px 0px 30px 0px;
+  transition: all 0.8s ease 0s;
+}
+.form-recipes__description ._form-focus {
+  box-shadow: 0 0 15px #e7a187;
+}
+.form-recipes__description ._form-error {
+  margin: 5px 0px 0px 0px;
+}
+.form-recipes__btn {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-align: left;
+  letter-spacing: 0.6px;
+  color: #FFFFFF;
+  background: #BC4B20;
+  display: inline-block;
+  border-radius: 25px;
+}
+.form-recipes__button {
+  padding: 10px 60px;
+  border-radius: 25px;
+}
+
+.login-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #FFD8C9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-page__form {
+  min-width: 775px;
+  min-height: 665px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 70px 115px;
+  border-radius: 20px;
+}
+.login-page__title {
+  margin: 0px 0px 60px 0px;
+  align-self: center;
+}
+.login-page label {
+  font-size: 1.125rem;
+  line-height: 1.2222222222;
+  text-align: left;
+  padding: 0px 0px 0px 30px;
+}
+.login-page input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #CECECE;
+  font-size: 1.125rem;
+  line-height: 1.2222222222;
+  padding: 0px 30px;
+  border-radius: 5px;
+}
+.login-page ._form-focus input {
+  box-shadow: 0 0 7px #e7a187;
+}
+.login-page__email {
+  padding: 0px 0px 30px 0px;
+}
+.login-page__email._form-error input {
+  box-shadow: 0 0 7px #e25441;
+}
+.login-page .form__error {
+  margin: 10px 0px 0px 0px;
+  color: red;
+}
+.login-page__password {
+  padding: 0px 0px 30px 0px;
+  position: relative;
+}
+.login-page__password input {
+  margin: 0px 0px 5px 0px;
+}
+.login-page__password input._form-error {
+  box-shadow: 0 0 7px #e25441;
+}
+.login-page__password a {
+  padding: 5px 0px 0px 30px;
+  color: #577ECC;
+}
+.login-page__password .form__error {
+  margin: 10px 0px 10px 0px;
+  color: red;
+}
+.login-page__viewpass {
+  position: absolute;
+  right: 14px;
+  top: 22px;
+  width: 50px;
+  height: 50px;
+  background: url("../img/open eye.svg") 50% 50% no-repeat;
+}
+.login-page__btn {
+  display: block;
+  background: #BC4B20;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 25px;
+  color: #FFFFFF;
+  margin: 0px 0px 60px 0px;
+}
+.login-page__button {
+  display: block;
+  padding: 10px 10px;
+  border-radius: 25px;
+  width: 100%;
+}
+.login-page__new {
+  text-align: center;
+}
+.login-page__new a {
+  color: #577ECC;
+  text-decoration: underline;
+}
+
+/** classes I've added myself **/
+.item-page__error-message {
+  display: flex;
+  justify-content: center;
+}
+ul.item-page__ingredient_list{
+  padding-left: 1em;
+}
+ul.item-page__ingredient_list li.item-page__text{
+  padding: 0px 0px 11px 0px;
+  list-style:disc;
+}
