@@ -172,7 +172,7 @@ h6 {
 .header__add span {
   position: relative;
 }
-.header__add span::before {
+.header__add span::before { /*part of plus sign in button*/
   content: "";
   position: absolute;
   width: 17px;
@@ -183,7 +183,7 @@ h6 {
   top: 50%;
   transform: translate(0, -50%);
 }
-.header__add span::after {
+.header__add span::after { /*part of plus sign in button*/
   content: "";
   position: absolute;
   width: 3px;
@@ -519,3 +519,100 @@ ul.item-page__ingredient_list li.item-page__text{
   padding: 0px 0px 11px 0px;
   list-style:disc;
 }
+.page__item__actions{
+  padding: 0px 0px 15px 30px;
+}
+.item-page__action_buttons {
+  padding: 0 0% 0 30%;
+  display: flex;
+  align-items: center;
+}
+
+.action__edit {
+  background: #BC4B20;
+  color: #FFFFFF;
+  border-radius: 25px;
+  margin-right: 50%;
+}
+.action__edit a {
+  display: block;
+  padding: 10px 40px 10px 64px;
+  border-radius: 25px;
+}
+
+.action__edit span {
+  position: relative;
+}
+.action__edit span::before {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 3px;
+  border-radius: 25px;
+  background: #fff;
+  left: -27px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.action__edit span::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 17px;
+  border-radius: 25px;
+  background: #fff;
+  left: -20px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+/* ddddddddd */
+.action__delete {
+  background: #BC4B20;
+  color: #FFFFFF;
+  border-radius: 25px;
+}
+.action__delete a {
+  display: block;
+  padding: 10px 40px 10px 64px;
+  border-radius: 25px;
+}
+.action__delete span {
+  position: relative;
+}
+/* .header__login {
+  margin: 0px 0px 0px 50px;
+  padding: 10px 0px 10px 0px;
+  color: #BC4B20;
+  background: url("../img/cheficon.svg") left no-repeat;
+} */
+
+/* part of plus sign */
+.action__delete span::before { 
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 3px;
+  border-radius: 25px;
+  background: #fff;
+  left: -27px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+/* part of plus sign */
+/* .action__delete span::after { 
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 17px;
+  border-radius: 25px;
+  background: #fff;
+  left: -20px;
+  top: 50%;
+  transform: translate(0, -50%);
+} */
+.item-recipe {
+  margin-bottom: 0px;
+  padding-bottom: 15px;
+}
+

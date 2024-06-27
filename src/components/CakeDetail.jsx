@@ -1,11 +1,22 @@
+import { Link, useSubmit } from "react-router-dom";
 import PropTypes from "prop-types";
 import CakeIngredients from "./CakeIngredients";
 
-function CakeDetail({ cake, isDisplayIngredients = false }) {
+function CakeDetail({ cake, isViewFullRecipe = false }) {
+  const submit = useSubmit();
+
+  function startDeleteHandler() {
+    const proceed = window.confirm("Are you sure?");
+
+    if (proceed) {
+      // submit(null, { method: 'delete' });
+    }
+  }
+
   return (
     <div className="page__cakes">
       <div className="page__container">
-        <div className="page__item item-page">
+        <div className="page__item item-page item-recipe">
           <img
             className="item-page__img "
             src={cake.image_url}
@@ -14,11 +25,30 @@ function CakeDetail({ cake, isDisplayIngredients = false }) {
           <div className="item-page__info">
             <div className="item-page__title best">{cake.title}</div>
             <div className="item-page__text">{cake.description}</div>
-            {isDisplayIngredients && (
+            {isViewFullRecipe && (
               <CakeIngredients ingredients={cake.ingredients} />
             )}
           </div>
         </div>
+        {isViewFullRecipe && (
+          <div className="page__item__actions item-page">
+            <menu className="item-page__action_buttons">
+              <div className="action__edit">
+                <Link>
+                  <span>Edit</span>
+                </Link>
+              </div>
+              <div className="action__delete">
+                <Link>
+                  <span>Delete</span>
+                </Link>
+                {/* <div>
+                  <button onClick={startDeleteHandler}>Delete</button>
+                </div> */}
+              </div>
+            </menu>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -26,5 +56,5 @@ function CakeDetail({ cake, isDisplayIngredients = false }) {
 export default CakeDetail;
 CakeDetail.propTypes = {
   cake: PropTypes.object,
-  isDisplayIngredients: PropTypes.bool,
+  isViewFullRecipe: PropTypes.bool,
 };

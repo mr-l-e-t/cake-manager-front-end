@@ -17,7 +17,6 @@ function Header() {
         <div className="header__buttons">
           <div className="header__add">
             <Link>
-              {/** add link to add recipe page */}
               <span>Add Recipe</span>
             </Link>
           </div>
