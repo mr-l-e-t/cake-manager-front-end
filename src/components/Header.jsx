@@ -22,7 +22,7 @@ function Header() {
           </div>
           <div className="header__login">
             <Link>
-              <span> Login </span>
+              <span>Login</span>
             </Link>
           </div>
         </div>

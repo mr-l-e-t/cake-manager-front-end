@@ -2,15 +2,13 @@ import { Link, useSubmit } from "react-router-dom";
 import PropTypes from "prop-types";
 import CakeIngredients from "./CakeIngredients";
 
-function CakeDetail({ cake, isViewFullRecipe = false }) {
+function CakeDetail({ cake, isViewFullRecipe = false, onDeleteRecipe }) {
   const submit = useSubmit();
 
   function startDeleteHandler() {
-    const proceed = window.confirm("Are you sure?");
-
-    if (proceed) {
-      // submit(null, { method: 'delete' });
-    }
+    // const proceed = window.confirm("Are you sure?");
+    console.log('clicked on delete recipe');    
+    onDeleteRecipe();
   }
 
   return (
@@ -39,9 +37,9 @@ function CakeDetail({ cake, isViewFullRecipe = false }) {
                 </Link>
               </div>
               <div className="action__delete">
-                <Link>
+                <button onClick={startDeleteHandler}>
                   <span>Delete</span>
-                </Link>
+                </button>
                 {/* <div>
                   <button onClick={startDeleteHandler}>Delete</button>
                 </div> */}

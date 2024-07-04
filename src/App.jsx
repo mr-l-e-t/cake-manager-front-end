@@ -5,6 +5,8 @@ import RootLayout from "./pages/Root";
 import Cakes, { loader as cakesLoader } from "./pages/Cakes.jsx";
 import ErrorPage from "./pages/Error.jsx";
 import CakeDetail, { loader as cakeRecipeDetailLoader } from "./pages/Cake.jsx";
+import Modal from "./components/modal/Modal.jsx";
+import DeleteConfirmation from "./components/modal/DeleteConfirmation.jsx";
 
 const siteNavigationRouter = createBrowserRouter([
   {

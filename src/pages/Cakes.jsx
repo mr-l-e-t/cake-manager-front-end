@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
-import CakesList from "../components/CakesList.jsx";
+import CakesList from "../components/cake/CakesList.jsx";
 import { cakes as cakesTest } from "../temp/utils.js";
 import PageTitle from "../components/PageTitle.jsx";
 

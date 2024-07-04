@@ -1,24 +1,47 @@
 import { Await, defer, useRouteLoaderData } from "react-router-dom";
-import CakeDetail from "../components/CakeDetail";
+import CakeDetail from "../components/cake/CakeDetail";
 import PageTitle from "../components/PageTitle";
-import { Suspense } from "react";
-
+import { Suspense, useRef } from "react";
 import { cakes as cakesTest } from "../temp/utils.js";
+
+import Modal from "../components/modal/Modal.jsx";
+import DeleteConfirmation from "../components/modal/DeleteConfirmation.jsx";
 
 function Cake() {
   const { cake } = useRouteLoaderData("cake-recipe-detail");
+  
+  const modal = useRef();
+  function handleOpenDeleteRecipeModal() {
+    modal.current.open();
+    // selectedPlace.current = id;
+  }
+
+  function handleCancelDeleteRecipe() {
+    modal.current.close();
+  }
+  function handleDeleteRecipe() {
+    console.log('add functionality for removing recipe');
+    modal.current.close();
+  }
 
   return (
-    <main className="page">
-      <PageTitle title="Recipe" />
-      <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
-        <Await resolve={cake}>
-          {(loadedCake) => (
-            <CakeDetail cake={loadedCake} isViewFullRecipe />
-          )}
-        </Await>
-      </Suspense>
-    </main>
+    <>
+      <Modal ref={modal}>
+        <DeleteConfirmation
+          onCancel={handleCancelDeleteRecipe}
+          onConfirm={handleDeleteRecipe}
+        />
+      </Modal>
+
+      <main className="page">
+        <PageTitle title="Recipe" />
+        <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+          <Await resolve={cake}>
+            {(loadedCake) => <CakeDetail cake={loadedCake} isViewFullRecipe onDeleteRecipe={handleOpenDeleteRecipeModal}/>}
+          </Await>
+        </Suspense>
+      </main>
+    </>
   );
 }
 export default Cake;
