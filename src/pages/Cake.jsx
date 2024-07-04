@@ -1,4 +1,4 @@
-import { Await, defer, useRouteLoaderData } from "react-router-dom";
+import { Await, defer, useRouteLoaderData, useNavigate } from "react-router-dom";
 import CakeDetail from "../components/cake/CakeDetail";
 import PageTitle from "../components/PageTitle";
 import { Suspense, useRef } from "react";
@@ -9,8 +9,9 @@ import DeleteConfirmation from "../components/modal/DeleteConfirmation.jsx";
 
 function Cake() {
   const { cake } = useRouteLoaderData("cake-recipe-detail");
-  
+
   const modal = useRef();
+  const navigate = useNavigate();
   function handleOpenDeleteRecipeModal() {
     modal.current.open();
     // selectedPlace.current = id;
@@ -20,8 +21,10 @@ function Cake() {
     modal.current.close();
   }
   function handleDeleteRecipe() {
-    console.log('add functionality for removing recipe');
+    console.log(`add functionality for removing recipe with id ${cake.id}`);
+    
     modal.current.close();
+    navigate("/cakes");
   }
 
   return (
@@ -37,7 +40,13 @@ function Cake() {
         <PageTitle title="Recipe" />
         <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
           <Await resolve={cake}>
-            {(loadedCake) => <CakeDetail cake={loadedCake} isViewFullRecipe onDeleteRecipe={handleOpenDeleteRecipeModal}/>}
+            {(loadedCake) => (
+              <CakeDetail
+                cake={loadedCake}
+                isViewFullRecipe
+                onDeleteRecipe={handleOpenDeleteRecipeModal}
+              />
+            )}
           </Await>
         </Suspense>
       </main>

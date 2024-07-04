@@ -55,4 +55,5 @@ export default CakeDetail;
 CakeDetail.propTypes = {
   cake: PropTypes.object,
   isViewFullRecipe: PropTypes.bool,
+  onDeleteRecipe: PropTypes.func
 };
