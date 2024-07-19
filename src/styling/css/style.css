@@ -2,28 +2,32 @@
 @font-face {
   font-family: BebasNeuePro-SemiExp-Bold;
   font-display: swap;
-  src: url("../fonts/BebasNeuePro-SemiExp-Bold.woff2") format("woff2"), url("../fonts/BebasNeuePro-SemiExp-Bold.woff") format("woff");
+  src: url("../fonts/BebasNeuePro-SemiExp-Bold.woff2") format("woff2"),
+    url("../fonts/BebasNeuePro-SemiExp-Bold.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: BebasNeuePro-SemiExp-Book;
   font-display: swap;
-  src: url("../fonts/BebasNeuePro-SemiExp-Book.woff2") format("woff2"), url("../fonts/BebasNeuePro-SemiExp-Book.woff") format("woff");
+  src: url("../fonts/BebasNeuePro-SemiExp-Book.woff2") format("woff2"),
+    url("../fonts/BebasNeuePro-SemiExp-Book.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: BebasNeuePro-Book;
   font-display: swap;
-  src: url("../fonts/BebasNeuePro-Book.woff2") format("woff2"), url("../fonts/BebasNeuePro-Book.woff") format("woff");
+  src: url("../fonts/BebasNeuePro-Book.woff2") format("woff2"),
+    url("../fonts/BebasNeuePro-Book.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: BebasNeuePro-SemiExp-Regular;
   font-display: swap;
-  src: url("../fonts/BebasNeuePro-SemiExp-Regular.woff2") format("woff2"), url("../fonts/BebasNeuePro-SemiExp-Regular.woff") format("woff");
+  src: url("../fonts/BebasNeuePro-SemiExp-Regular.woff2") format("woff2"),
+    url("../fonts/BebasNeuePro-SemiExp-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -117,16 +121,16 @@ h6 {
 .wrapper > * {
   min-width: 0;
 }
-[class*=__container] {
+[class*="__container"] {
   max-width: 62.8125rem;
   box-sizing: content-box;
   margin: 0 auto;
 }
 
-[class*=-ibg] {
+[class*="-ibg"] {
   position: relative;
 }
-[class*=-ibg] img {
+[class*="-ibg"] img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -135,7 +139,7 @@ h6 {
   object-fit: cover;
 }
 
-[class*=-ibg_contain] img {
+[class*="-ibg_contain"] img {
   object-fit: contain;
 }
 
@@ -159,8 +163,8 @@ h6 {
   align-items: center;
 }
 .header__add {
-  background: #BC4B20;
-  color: #FFFFFF;
+  background: #bc4b20;
+  color: #ffffff;
   border-radius: 25px;
 }
 .header__add a {
@@ -172,7 +176,8 @@ h6 {
 .header__add span {
   position: relative;
 }
-.header__add span::before { /*part of plus sign in button*/
+.header__add span::before {
+  /*part of plus sign in button*/
   content: "";
   position: absolute;
   width: 17px;
@@ -183,7 +188,8 @@ h6 {
   top: 50%;
   transform: translate(0, -50%);
 }
-.header__add span::after { /*part of plus sign in button*/
+.header__add span::after {
+  /*part of plus sign in button*/
   content: "";
   position: absolute;
   width: 3px;
@@ -197,27 +203,27 @@ h6 {
 .header__login {
   margin: 0px 0px 0px 50px;
   padding: 10px 0px 10px 0px;
-  color: #BC4B20;
+  color: #bc4b20;
   background: url("../img/cheficon.svg") left no-repeat;
 }
 .header__login a {
   padding: 10px 0px 10px 30px;
 }
-.add_cake{
+.add_cake {
   padding: 10px 0px 10px 30px;
   display: block;
   width: 126px;
   margin-left: 12px;
 }
 .page {
-  background: #F6F6F6;
+  background: #f6f6f6;
 }
 .page__title {
   padding: 30px 0px;
-  background: #FFD8C9;
+  background: #ffd8c9;
 }
 
-.page__title_add_cake{
+.page__title_add_cake {
   height: 200px;
 }
 .page__title h1 {
@@ -230,7 +236,7 @@ h6 {
 .page__btn-download {
   font-size: 1.125rem;
   line-height: 1.2222222222;
-  color: #FFFFFF;
+  color: #ffffff;
   background: #808080;
   display: inline-block;
   border-radius: 25px;
@@ -260,7 +266,7 @@ h6 {
 }
 .item-page__img {
   flex: 1 0 308px;
-  background: #B4B4B4 0% 0% no-repeat padding-box;
+  background: #b4b4b4 0% 0% no-repeat padding-box;
   border-radius: 10px;
   max-height: 223px;
   max-width: 308px;
@@ -287,12 +293,12 @@ h6 {
   line-height: 1.2222222222;
 }
 .item-page__btn {
-  color: #177FBD;
+  color: #177fbd;
   line-height: 1.2222222222;
 }
 
 .best {
-  color: #BC4B20;
+  color: #bc4b20;
 }
 
 * {
@@ -301,7 +307,7 @@ h6 {
 
 .form-recipes {
   padding: 40px;
-  background: #FEC7B3;
+  background: #fec7b3;
   border-radius: 20px;
   max-width: 545px;
   min-height: 677px;
@@ -343,10 +349,12 @@ h6 {
 }
 .form-recipes .form__error {
   margin: 10px 0px 0px 0px;
-  color: red;
+  color: #bc4b20;
+  font-weight: 900;
+  padding-left: 10px;
 }
 .form-recipes * ._form-error {
-  box-shadow: 0 0 15px #e25441;
+  box-shadow: 0 0 15px #bc4b20;
 }
 .form-recipes__img {
   margin: 0px 0px 30px 0px;
@@ -364,7 +372,7 @@ h6 {
   position: absolute;
   height: 50px;
   width: 2px;
-  background: #FFD8C9;
+  background: #ffd8c9;
   right: 50px;
   transform: translate(0, 54%);
   top: 0;
@@ -394,8 +402,8 @@ h6 {
   line-height: 1.2;
   text-align: left;
   letter-spacing: 0.6px;
-  color: #FFFFFF;
-  background: #BC4B20;
+  color: #ffffff;
+  background: #bc4b20;
   display: inline-block;
   border-radius: 25px;
 }
@@ -410,7 +418,7 @@ h6 {
   height: 100%;
   top: 0;
   left: 0;
-  background: #FFD8C9;
+  background: #ffd8c9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -438,7 +446,7 @@ h6 {
   display: block;
   width: 100%;
   height: 50px;
-  border: 1px solid #CECECE;
+  border: 1px solid #cecece;
   font-size: 1.125rem;
   line-height: 1.2222222222;
   padding: 0px 30px;
@@ -469,7 +477,7 @@ h6 {
 }
 .login-page__password a {
   padding: 5px 0px 0px 30px;
-  color: #577ECC;
+  color: #577ecc;
 }
 .login-page__password .form__error {
   margin: 10px 0px 10px 0px;
@@ -485,12 +493,12 @@ h6 {
 }
 .login-page__btn {
   display: block;
-  background: #BC4B20;
+  background: #bc4b20;
   font-size: 1.25rem;
   line-height: 1.2;
   text-align: center;
   border-radius: 25px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0px 0px 60px 0px;
 }
 .login-page__button {
@@ -503,7 +511,7 @@ h6 {
   text-align: center;
 }
 .login-page__new a {
-  color: #577ECC;
+  color: #577ecc;
   text-decoration: underline;
 }
 
@@ -512,14 +520,14 @@ h6 {
   display: flex;
   justify-content: center;
 }
-ul.item-page__ingredient_list{
+ul.item-page__ingredient_list {
   padding-left: 1em;
 }
-ul.item-page__ingredient_list li.item-page__text{
+ul.item-page__ingredient_list li.item-page__text {
   padding: 0px 0px 11px 0px;
-  list-style:disc;
+  list-style: disc;
 }
-.page__item__actions{
+.page__item__actions {
   padding: 0px 0px 15px 30px;
 }
 .item-page__action_buttons {
@@ -529,8 +537,8 @@ ul.item-page__ingredient_list li.item-page__text{
 }
 
 .action__edit {
-  background: #BC4B20;
-  color: #FFFFFF;
+  background: #bc4b20;
+  color: #ffffff;
   border-radius: 25px;
   margin-right: 50%;
 }
@@ -569,8 +577,8 @@ ul.item-page__ingredient_list li.item-page__text{
 
 /* ddddddddd */
 .action__delete {
-  background: #BC4B20;
-  color: #FFFFFF;
+  background: #bc4b20;
+  color: #ffffff;
   border-radius: 25px;
 }
 .action__delete button {
@@ -590,7 +598,7 @@ ul.item-page__ingredient_list li.item-page__text{
 }
 
 /* part of minus sign */
-.action__delete span::before { 
+.action__delete span::before {
   content: "";
   position: absolute;
   width: 17px;
@@ -620,13 +628,13 @@ ul.item-page__ingredient_list li.item-page__text{
 
 .modal {
   margin: auto;
-  min-width: 30rem;;
+  min-width: 30rem;
   padding: 0;
   z-index: 2;
   background: #d5c7bc;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgb(0, 0, 0);
-  animation: slide-down-fade-in 0.3s ease-out forwards;  
+  animation: slide-down-fade-in 0.3s ease-out forwards;
 }
 
 @keyframes slide-down-fade-in {
@@ -662,7 +670,7 @@ ul.item-page__ingredient_list li.item-page__text{
   font-size: 1.8rem;
   padding: 0px 0px 20px 0px;
   line-height: 1.1944444444;
-  color: #BC4B20;
+  color: #bc4b20;
   display: flex;
   justify-content: center;
 }
@@ -680,14 +688,81 @@ ul.item-page__ingredient_list li.item-page__text{
   justify-content: flex-end;
   gap: 1rem;
 }
-#delete-confirmation .button{
+#delete-confirmation .button {
   padding: 10px 40px;
   border-radius: 25px;
   height: 38px;
-  background: #BC4B20;
-  color: #FFFFFF;  
+  background: #bc4b20;
+  color: #ffffff;
 }
 #delete-confirmation .button__decline-confirmation {
- margin-right: 50%; 
+  margin-right: 50%;
+}
+
+.page__cake-new-edit {
+  margin-bottom: 30px;
+}
+
+.form-recipes__ingredients legend {
+  margin-left: 8px;
+  padding: 0px 2px;
+}
+.form-recipes__ingredients ul li input.form-recipes__input {
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+}
+fieldset.form-recipes__ingredients div.form__error {
+  margin: -18px 147px 0 143px;
+  background-color: #fec7b3;
+}
+.form-recipes__ingredient {
+  display: flex;
+}
+div.form-recipes__ingredient div.form-recipes__btn {
+  margin-top: 5px;
+}
+div.form-recipes__btn button.form-recipes__ingredients_btn.btn {
+  border-radius: 0 5px 5px 0;
+  width: 40px;
+  height: 40px;
+}
+
+.form-recipe-ingredient-add__btn {
+  font-size: 1.25rem;
+  color: #bc4b20;
+  display: inline-block;
+  border-radius: 5px;
+  margin-left: 10px;
+  border: 1px solid;
+}
+.form-recipe-ingredient-add__button {
+  padding: 5px 6px 5px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.form-recipe-ingredient-add__button span {
+  position: relative;
+}
+.form-recipe-ingredient-add__button span::before {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 3px;
+  background: #bc4b20;
+  left: -27px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+/** part of the plus sign **/
+.form-recipe-ingredient-add__button span::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 17px;
+  background: #bc4b20;
+  left: -20px;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 /** confirm delete recipe modal content end **/

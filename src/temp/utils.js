@@ -7,13 +7,13 @@ export const cakes = [
     image_url:
       "https://s3-eu-west-1.amazonaws.com/s3.mediafileserver.co.uk/carnation/WebFiles/RecipeImages/lemoncheesecake_lg.jpg",
     ingredients: [
-      { id: 1, ingrediend: "100g butter, melted, plus extra for greasing" },
-      { id: 2, ingrediend: "275g gingernut biscuits" },
-      { id: 3, ingrediend: "625g full-fat cream cheese" },
-      { id: 4, ingrediend: "140g icing sugar, sifted" },
-      { id: 5, ingrediend: "3 lemons, zest and juice (about 80ml)" },
-      { id: 6, ingrediend: "150ml double cream" },
-      { id: 7, ingrediend: "75g lemon curd" },
+      { id: 1, ingredient: "100g butter, melted, plus extra for greasing" },
+      { id: 2, ingredient: "275g gingernut biscuits" },
+      { id: 3, ingredient: "625g full-fat cream cheese" },
+      { id: 4, ingredient: "140g icing sugar, sifted" },
+      { id: 5, ingredient: "3 lemons, zest and juice (about 80ml)" },
+      { id: 6, ingredient: "150ml double cream" },
+      { id: 7, ingredient: "75g lemon curd" },
     ],
   },
   {

@@ -16,7 +16,7 @@ function Header() {
         </div>
         <div className="header__buttons">
           <div className="header__add">
-            <Link>
+            <Link to="/cakes/new">
               <span>Add Recipe</span>
             </Link>
           </div>

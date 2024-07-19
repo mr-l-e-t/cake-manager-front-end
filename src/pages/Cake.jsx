@@ -1,4 +1,9 @@
-import { Await, defer, useRouteLoaderData, useNavigate } from "react-router-dom";
+import {
+  Await,
+  defer,
+  useRouteLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import CakeDetail from "../components/cake/CakeDetail";
 import PageTitle from "../components/PageTitle";
 import { Suspense, useRef } from "react";
@@ -8,13 +13,13 @@ import Modal from "../components/modal/Modal.jsx";
 import DeleteConfirmation from "../components/modal/DeleteConfirmation.jsx";
 
 function Cake() {
+  
   const { cake } = useRouteLoaderData("cake-recipe-detail");
 
   const modal = useRef();
   const navigate = useNavigate();
   function handleOpenDeleteRecipeModal() {
     modal.current.open();
-    // selectedPlace.current = id;
   }
 
   function handleCancelDeleteRecipe() {
@@ -22,7 +27,7 @@ function Cake() {
   }
   function handleDeleteRecipe() {
     console.log(`add functionality for removing recipe with id ${cake.id}`);
-    
+
     modal.current.close();
     navigate("/cakes");
   }

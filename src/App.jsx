@@ -3,10 +3,10 @@ import "./styling/css/style.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import Cakes, { loader as cakesLoader } from "./pages/Cakes.jsx";
-import ErrorPage from "./pages/Error.jsx";
 import CakeDetail, { loader as cakeRecipeDetailLoader } from "./pages/Cake.jsx";
-import Modal from "./components/modal/Modal.jsx";
-import DeleteConfirmation from "./components/modal/DeleteConfirmation.jsx";
+import CakeNew from "./pages/CakeNew.jsx";
+
+import ErrorPage from "./pages/Error.jsx";
 
 const siteNavigationRouter = createBrowserRouter([
   {
@@ -34,7 +34,10 @@ const siteNavigationRouter = createBrowserRouter([
         id: "cake-recipe-detail",
         loader: cakeRecipeDetailLoader,
       }, //Why can't I add this as a child of cakes and get it to work?
-
+      {
+        path: "/cakes/new",
+        element: <CakeNew />,
+      },
       //TODO: add login page
     ],
   },
