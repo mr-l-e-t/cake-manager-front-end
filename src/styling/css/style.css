@@ -740,6 +740,11 @@ div.form-recipes__btn button.form-recipes__ingredients_btn.btn {
   border-radius: 5px;
   font-weight: bold;
 }
+.form-recipe-ingredient-add__button:disabled {
+  color: #d77b58;
+  cursor: not-allowed;
+  /* border: 1px solid #d77b58; */
+}
 
 .form-recipe-ingredient-add__button span {
   position: relative;
@@ -754,6 +759,9 @@ div.form-recipes__btn button.form-recipes__ingredients_btn.btn {
   top: 50%;
   transform: translate(0, -50%);
 }
+.form-recipe-ingredient-add__button:disabled span::before {
+  background: #d77b58;
+}
 /** part of the plus sign **/
 .form-recipe-ingredient-add__button span::after {
   content: "";
@@ -764,5 +772,8 @@ div.form-recipes__btn button.form-recipes__ingredients_btn.btn {
   left: -20px;
   top: 50%;
   transform: translate(0, -50%);
+}
+.form-recipe-ingredient-add__button:disabled span::after {
+  background: #d77b58;
 }
 /** confirm delete recipe modal content end **/

@@ -13,11 +13,11 @@ import Modal from "../components/modal/Modal.jsx";
 import DeleteConfirmation from "../components/modal/DeleteConfirmation.jsx";
 
 function Cake() {
-  
+  const navigate = useNavigate();
   const { cake } = useRouteLoaderData("cake-recipe-detail");
 
   const modal = useRef();
-  const navigate = useNavigate();
+
   function handleOpenDeleteRecipeModal() {
     modal.current.open();
   }
@@ -25,10 +25,11 @@ function Cake() {
   function handleCancelDeleteRecipe() {
     modal.current.close();
   }
-  function handleDeleteRecipe() {
-    console.log(`add functionality for removing recipe with id ${cake.id}`);
 
+  function handleDeleteRecipe() {
     modal.current.close();
+    console.log(`add functionality for removing recipe with id ${cake.id}`);
+    deleteCake(cake.id);
     navigate("/cakes");
   }
 
@@ -71,4 +72,9 @@ export async function loader({ params }) {
   return defer({
     cake: await loadCake(id),
   });
+}
+export async function deleteCake(id) {
+  console.log(` Lucas - add functionality for removing recipe with id ${id}`);
+  // const navigate = useNavigate();
+  // navigate("/cakes");
 }
