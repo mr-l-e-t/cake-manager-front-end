@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import CakeIngredients from "./CakeIngredients";
 
 function CakeDetail({ cake, isViewFullRecipe = false, onDeleteRecipe }) {
+  
   function startDeleteHandler() {
     console.log("clicked on delete recipe");
     onDeleteRecipe();
@@ -46,6 +47,7 @@ function CakeDetail({ cake, isViewFullRecipe = false, onDeleteRecipe }) {
   );
 }
 export default CakeDetail;
+
 CakeDetail.propTypes = {
   cake: PropTypes.object,
   isViewFullRecipe: PropTypes.bool,

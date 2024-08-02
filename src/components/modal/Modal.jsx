@@ -1,5 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
 
 const Modal = forwardRef(function Modal({ children }, ref) {
   const dialog = useRef();
@@ -22,5 +23,8 @@ const Modal = forwardRef(function Modal({ children }, ref) {
     document.getElementById("modal")
   );
 });
-
 export default Modal;
+
+Modal.propTypes = {
+  children: PropTypes.element,
+};

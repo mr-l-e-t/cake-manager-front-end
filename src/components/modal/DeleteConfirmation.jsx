@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 export default function DeleteConfirmation({ onConfirm, onCancel }) {
   return (
     <div id="delete-confirmation">
@@ -14,3 +15,7 @@ export default function DeleteConfirmation({ onConfirm, onCancel }) {
     </div>
   );
 }
+DeleteConfirmation.propTypes = {
+  onConfirm: PropTypes.func,
+  onCancel: PropTypes.func,
+};

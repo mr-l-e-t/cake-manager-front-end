@@ -1,33 +1,36 @@
 import { Suspense } from "react";
-import { Await, defer, useLoaderData } from "react-router-dom";
 import CakesList from "../components/cake/CakesList.jsx";
-import { cakes as cakesTest } from "../temp/utils.js";
 import PageTitle from "../components/PageTitle.jsx";
+import { cakesListQuery, queryClient } from "../util/reactQuery.js";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
-const cakesList = [...cakesTest];
+function CakesInternalElement() {
+  const { data } = useSuspenseQuery(cakesListQuery());
+
+  return <CakesList cakes={data} />;
+}
+
 function Cakes() {
-  const { cakesReturned } = useLoaderData(); //read data passed by loader
-
   return (
     <main className="page">
       <PageTitle title="Recipes" />
-
       <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
-        <Await resolve={cakesReturned}>
-          {(loadedCakes) => <CakesList cakes={loadedCakes} />}
-        </Await>
+        <CakesInternalElement />
       </Suspense>
     </main>
   );
 }
 export default Cakes;
 
-async function loadCakes() {
-  //TODO: replace with call to backend
-  return cakesList;
-}
-export function loader() {
-  return defer({
-    cakesReturned: loadCakes(),
-  });
+export async function loader() {
+  // not returning / awaiting anything - just triggering the loading
+  // queryClient.ensureQueryData({
+  //   queryKey: ["cakes"],
+  //   queryFn: ({signal})=>fetchCakes({signal}),//get and pass abort signal if navigating away from page before result has been returned.
+  // });
+
+  console.log("lucas. inside cakes loader()");
+
+  queryClient.ensureQueryData(cakesListQuery());
+  return null;
 }
