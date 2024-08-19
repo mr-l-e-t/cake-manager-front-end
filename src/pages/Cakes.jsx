@@ -24,13 +24,6 @@ export default Cakes;
 
 export async function loader() {
   // not returning / awaiting anything - just triggering the loading
-  // queryClient.ensureQueryData({
-  //   queryKey: ["cakes"],
-  //   queryFn: ({signal})=>fetchCakes({signal}),//get and pass abort signal if navigating away from page before result has been returned.
-  // });
-
-  console.log("lucas. inside cakes loader()");
-
   queryClient.ensureQueryData(cakesListQuery());
   return null;
 }

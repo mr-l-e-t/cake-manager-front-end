@@ -1,10 +1,12 @@
 import { useFieldArray, useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 import deleteIcon from "../../styling/img/delete-2-svgrepo-com.svg";
-import { useNavigate } from "react-router-dom";
+import { useSubmit } from "react-router-dom";
 
-function CakeForm({ cake, action = "new" }) {
-  const navigate = useNavigate();
+function CakeForm({ cake }) {
+  const MAXIMUM_NUMBER_OF_INGREDIENTS = 8;
+  const formTitle = cake && cake.id ? "Edit recipe" : "New recipe";
+  const submit = useSubmit();
   const {
     register, //used for registering the fields
     handleSubmit, //receives the form data if form validation is successful. handleSubmit can take two parameter functions, onSubmit and onError
@@ -17,12 +19,11 @@ function CakeForm({ cake, action = "new" }) {
           title: cake.title,
           image_url: cake.image_url,
           description: cake.description,
-          ingredients: [...cake.ingredients],
+          ingredients: [...(cake.ingredients ?? [])],
         }
       : undefined,
   });
 
-  const MAXIMUM_NUMBER_OF_INGREDIENTS = 8;
   const { fields, append, remove } = useFieldArray({
     name: "ingredients",
     control,
@@ -36,26 +37,20 @@ function CakeForm({ cake, action = "new" }) {
 
   async function onSubmitRecipe(data, event) {
     console.log("clicked save button");
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("data", data); //I'm not sure event parameter is necessary
-
-    const newCake = {
-      ...data,
-      ingredients: data.ingredients.filter(
-        (ingredient) => String(ingredient.ingredient).trim().length != ""
-      ),
+    const cakeTosubmit = {
+      ...data.id,
+      title: data.title,
+      image_url: data.image_url,
+      description: data.description,
+      ...(data.ingredients.length && { ingredients: [...data.ingredients] }), //pass ingredients only if list is not empty
     };
-    console.log("newCake", newCake);
-    console.log("event", event);
 
-    cakeAction(action); //backend create/edit cake
-    //add some sort of notification that the cake has been succesfully created
-    if (action === "new") {
-      navigate("/cakes");
-    } else {
-      navigate("..");
-    }
+    submit(cakeTosubmit, {
+      method: cake && cake.id ? "put" : "post",
+      encType: "application/json", //json encoding
+    });
   }
+
   function onSubmitRecipeError(data) {
     console.log("error in field validations");
     console.log("data", data);
@@ -72,7 +67,7 @@ function CakeForm({ cake, action = "new" }) {
         onSubmit={handleSubmit(onSubmitRecipe, onSubmitRecipeError)}
         className="page__recipes-form form-recipes"
       >
-        <div className="form-recipes__title">Add New Recipe</div>
+        <div className="form-recipes__title"> {formTitle}</div>
         <div className="form-recipes__field">
           <label>Recipe Name</label>
           <input
@@ -115,9 +110,8 @@ function CakeForm({ cake, action = "new" }) {
             <div className="form__error">{errors.description.message}</div>
           )}
         </div>
-        {/**TODO: add list of ingredients */}
+
         <div className="form-recipes__field ">
-          {/* <label>Ingredients </label> */}
           <div className="form-recipe-ingredient-add__btn">
             <button
               type="button"
@@ -174,14 +168,4 @@ function CakeForm({ cake, action = "new" }) {
 export default CakeForm;
 CakeForm.propTypes = {
   cake: PropTypes.object,
-  action: PropTypes.string,
 };
-
-export async function cakeAction(action = "new") {
-  if (action === "new") {
-    console.log("add funcitonality for creating new object");
-  } else {
-    //funcitonality for editing
-    console.log("add funcitonality for editing cake");
-  }
-}

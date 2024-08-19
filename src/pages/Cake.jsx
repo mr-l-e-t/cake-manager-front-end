@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { redirect, useParams, useSubmit } from "react-router-dom";
 import CakeDetail from "../components/cake/CakeDetail.jsx";
 import PageTitle from "../components/PageTitle.jsx";
 import { Suspense, useRef } from "react";
@@ -7,9 +7,11 @@ import Modal from "../components/modal/Modal.jsx";
 import DeleteConfirmation from "../components/modal/DeleteConfirmation.jsx";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { cakeDetailsQuery, queryClient } from "../util/reactQuery.js";
+import { deleteCake } from "../util/http.js";
+import toast from "react-hot-toast";
 
 function CakeRecipeDetailsElement() {
-  const navigate = useNavigate();
+  const submit = useSubmit();
   const params = useParams();
 
   const { data } = useSuspenseQuery(cakeDetailsQuery(params.cakeID));
@@ -26,9 +28,7 @@ function CakeRecipeDetailsElement() {
 
   function handleDeleteRecipe() {
     modal.current.close();
-    console.log(`add functionality for removing recipe with id ${data.id}`);
-    deleteCake(data.id);
-    navigate("/cakes");
+    submit(null, { method: "delete" });
   }
 
   return (
@@ -62,19 +62,18 @@ function Cake() {
 export default Cake;
 
 export async function loader({ params }) {
-  
-  // queryClient.ensureQueryData({
-  //   queryKey: ["cake", params.cakeID],
-  //   queryFn: ({ signal }) => fetchCake({ signal, cakeID: params.cakeID }),
-  // });
-  console.log("lucas. inside single cake loader()");
   // not returning / awaiting anything - just triggering the loading
   queryClient.ensureQueryData(cakeDetailsQuery(params.cakeID));
 
   return null;
 }
-export async function deleteCake(id) {
-  console.log(` Lucas - add functionality for removing recipe with id ${id}`);
-  // const navigate = useNavigate();
-  // navigate("/cakes");
+export async function action({ params }) {
+  console.log("delete cake with id: ", params.cakeID);
+  if (!params.cakeID) {
+    throw new Error("No cake ID provided");
+  }
+  await deleteCake({ cakeID: params.cakeID });
+  queryClient.invalidateQueries({ queryKey: ["cakes"] });
+  toast.success("successfully deleted a recipe");
+  return redirect("/");
 }

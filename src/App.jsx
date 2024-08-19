@@ -5,14 +5,14 @@ import RootLayout from "./pages/Root";
 import Cakes, { loader as cakesLoader } from "./pages/Cakes.jsx";
 import Cake, {
   loader as cakeDetailLoader,
-  deleteCake as deleteCakeAction,
+  action as deleteCakeAction,
 } from "./pages/Cake.jsx";
-import CakeNew from "./pages/CakeNew.jsx";
+import CakeNew, { action as createCakeAction } from "./pages/CakeNew.jsx";
 import ErrorPage from "./pages/Error.jsx";
-import CakeEdit from "./pages/CakeEdit.jsx";
-import { cakeAction } from "./components/cake/CakeForm.jsx";
+import CakeEdit, { action as editCakeAction } from "./pages/CakeEdit.jsx";
 import { queryClient } from "./util/reactQuery.js";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "react-hot-toast";
 
 const siteNavigationRouter = createBrowserRouter([
   {
@@ -20,11 +20,14 @@ const siteNavigationRouter = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Cakes />, loader: cakesLoader },
+      {
+        index: true,
+        element: <Cakes />,
+        loader: cakesLoader
+      },
       {
         path: "/cakes",
-        element: <Cakes />,
-        loader: cakesLoader,
+        element: <Cakes />
       },
       {
         path: "/cake/:cakeID",
@@ -39,14 +42,14 @@ const siteNavigationRouter = createBrowserRouter([
           {
             path: "edit",
             element: <CakeEdit />,
-            action: cakeAction,
+            action: editCakeAction,
           },
         ],
-      }, //Why can't I add this as a child of cakes and get it to work?
+      },
       {
         path: "/cake/new",
         element: <CakeNew />,
-        action: cakeAction,
+        action: createCakeAction,
       },
       //TODO: add login page
     ],
@@ -55,10 +58,13 @@ const siteNavigationRouter = createBrowserRouter([
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={siteNavigationRouter} />
-    </QueryClientProvider>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={siteNavigationRouter} />
+      </QueryClientProvider>
+      <Toaster position="top-center" />
+      {/*notification when doing cake modifications */}
+    </>
   );
 }
-
 export default App;
