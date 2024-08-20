@@ -9,7 +9,7 @@ function CakeIngredients({ ingredients }) {
       <ul className="item-page__ingredient_list">
         {ingredients.map((ingredient) => (
           <li className="item-page__text" key={ingredient.id}>
-            {ingredient.ingrediend}
+            {ingredient.ingredient}
           </li>
         ))}
       </ul>

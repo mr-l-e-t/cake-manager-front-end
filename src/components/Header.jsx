@@ -16,14 +16,13 @@ function Header() {
         </div>
         <div className="header__buttons">
           <div className="header__add">
-            <Link>
-              {/** add link to add recipe page */}
+            <Link to="/cake/new">
               <span>Add Recipe</span>
             </Link>
           </div>
           <div className="header__login">
             <Link>
-              <span> Login </span>
+              <span>Login</span>
             </Link>
           </div>
         </div>

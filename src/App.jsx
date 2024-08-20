@@ -3,8 +3,16 @@ import "./styling/css/style.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import Cakes, { loader as cakesLoader } from "./pages/Cakes.jsx";
+import Cake, {
+  loader as cakeDetailLoader,
+  action as deleteCakeAction,
+} from "./pages/Cake.jsx";
+import CakeNew, { action as createCakeAction } from "./pages/CakeNew.jsx";
 import ErrorPage from "./pages/Error.jsx";
-import CakeDetail, { loader as cakeRecipeDetailLoader } from "./pages/Cake.jsx";
+import CakeEdit, { action as editCakeAction } from "./pages/CakeEdit.jsx";
+import { queryClient } from "./util/reactQuery.js";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "react-hot-toast";
 
 const siteNavigationRouter = createBrowserRouter([
   {
@@ -12,33 +20,51 @@ const siteNavigationRouter = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Cakes />, loader: cakesLoader },
       {
-        path: "/cakes",
+        index: true,
         element: <Cakes />,
-        loader: cakesLoader,
-        // children: [ //this doesn't work - find out why!
-        //   {
-        //     path: "/cakes/:cakeID",
-        //     id: "cake-recipe-detail",
-        //     loader: cakeRecipeDetailLoader,
-        //     children: [{ index: true, element: <CakeDetail /> }],
-        //   },
-        // ],
+        loader: cakesLoader
       },
       {
-        path: "/cakes/:cakeID",
-        element: <CakeDetail />,
-        id: "cake-recipe-detail",
-        loader: cakeRecipeDetailLoader,
-      }, //Why can't I add this as a child of cakes and get it to work?
-
+        path: "/cakes",
+        element: <Cakes />
+      },
+      {
+        path: "/cake/:cakeID",
+        id: "cake-detail",
+        loader: cakeDetailLoader,
+        children: [
+          {
+            index: true,
+            element: <Cake />,
+            action: deleteCakeAction, //action are writes to the loaders' reads
+          },
+          {
+            path: "edit",
+            element: <CakeEdit />,
+            action: editCakeAction,
+          },
+        ],
+      },
+      {
+        path: "/cake/new",
+        element: <CakeNew />,
+        action: createCakeAction,
+      },
       //TODO: add login page
     ],
   },
 ]);
-function App() {
-  return <RouterProvider router={siteNavigationRouter} />;
-}
 
+function App() {
+  return (
+    <>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={siteNavigationRouter} />
+      </QueryClientProvider>
+      <Toaster position="top-center" />
+      {/*notification when doing cake modifications */}
+    </>
+  );
+}
 export default App;

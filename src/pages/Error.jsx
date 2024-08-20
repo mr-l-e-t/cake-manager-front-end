@@ -6,9 +6,10 @@ function ErrorPage() {
   const error = useRouteError();
   let title = "An error occurred.";
   let message = "Something went wrong";
-
+  console.log("error", error);
+  message = error.message;
   if (error.status === 500) {
-    message = error.data.message;
+    message = error.message;
   }
   if (error.status === 404) {
     title = "Not found";

@@ -8,7 +8,7 @@ function CakesList({ cakes }) {
       <ul className="page__container">
         {cakes.map((cake) => (
           <li key={cake.id}>
-            <Link to={`/cakes/${cake.id}`}>
+            <Link to={`/cake/${cake.id}`}>
               <CakeDetail cake={cake} />
             </Link>
           </li>
