@@ -40,13 +40,13 @@ As a standalone project, I've added backend project, which recreates a dummy bac
 
 # Screenshots
 ## Homepage
-![Screenshot of list of cake recipes](https://drive.google.com/file/d/1vTOLcl1cf6sDPCC-8BbGMexquAXpMnrk/view?usp=sharing)
+![Screenshot of list of cake recipes](readme/01_recipeList.png)
 
 ## View Cake Recipe
-![Screenshot of single cake recipe](https://drive.google.com/file/d/1qNyVTeVnkAKBD55SkCxyQLIGFYyml8pR/view?usp=sharing)
+![Screenshot of single cake recipe](readme/02_singleRecipeView.png)
 
 ## Edit Recipe
-![Screenshot of edit cake recipe form](https://drive.google.com/file/d/1KKuBk1Zb1pbs1O8kjQsuynDogekSRvlr/view?usp=sharing)
+![Screenshot of edit cake recipe form](readme/03_recipeEdit.png)
 
 ## New Cake Recipe
-![Screenshot of create new cake recipe form](https://drive.google.com/file/d/16dAXxepPL4_cDk8UqATC8l_SApUNZag9/view?usp=sharing)
+![Screenshot of create new cake recipe form](readme/04_recipeNew.png)
